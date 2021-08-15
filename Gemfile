@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'activerecord-postgis-adapter'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
@@ -42,6 +43,19 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
 end
 
+group :development do
+  gem 'capistrano',         require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'web-console', '>= 3.3.0'
+end
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
@@ -56,3 +70,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
