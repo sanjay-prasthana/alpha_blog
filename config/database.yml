@@ -27,7 +27,7 @@ development:
   host: <%= ENV.fetch("DB_HOST") %>
   port: <%= ENV.fetch("DB_PORT") %>
 
-  production:
+production:
   <<: *default
   username: <%= ENV.fetch("DB_USER_NAME") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
