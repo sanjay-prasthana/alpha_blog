@@ -53,7 +53,17 @@ namespace :deploy do
       invoke 'deploy'
     end
   end
-
+  
+  desc 'Runs rake db:seed'
+  task seed: [:set_rails_env] do
+    on fetch(:migration_servers) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:seed'
+        end
+      end
+    end
+  end
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -63,6 +73,7 @@ namespace :deploy do
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
+  after 'migrate', 'seed'
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end

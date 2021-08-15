@@ -19,30 +19,31 @@ default: &default
 # test:
 #   <<: *default
 #   database: db/test.sqlite3
-
 development:
   <<: *default
-  username: postgres
-  password: password
-  database: beta
-  host: localhost
-  port: 5432
+  username: <%= ENV.fetch("DB_USER_NAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  database: <%= ENV.fetch("DB_NAME") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") %>
+
+  production:
+  <<: *default
+  username: <%= ENV.fetch("DB_USER_NAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  database: <%= ENV.fetch("DB_NAME") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") %>
 
 test:
   <<: *default
   username: postgres
-  password: password
-  database: beta
-  host: localhost
-  port: 5432
+  password: <%= ENV.fetch("DB_TEST_PASSWORD") %>
+  database: <%= ENV.fetch("DB_TEST_NAME") %>
+  host: <%= ENV.fetch("DB_TEST_HOST") %>
+  port: <%= ENV.fetch("DB_TEST_PORT") %>
 # production:
 #   <<: *default
 #   database: db/production.sqlite3
 
-production:
-  <<: *default
-  username: postgres
-  password: password
-  database: beta
-  host: localhost
-  port: 5432
+
