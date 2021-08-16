@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'activerecord-postgis-adapter'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
