@@ -9,8 +9,8 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
-# install_plugin Capistrano::Puma::Daemon
-install_plugin Capistrano::Puma::Systemd
+install_plugin Capistrano::Puma::Daemon
+# install_plugin Capistrano::Puma::Systemd
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
