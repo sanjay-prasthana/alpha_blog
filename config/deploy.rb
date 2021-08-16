@@ -54,16 +54,15 @@ namespace :deploy do
     end
   end
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
+  # desc 'Restart application'
+  # task :restart do
+  #   on roles(:app), in: :sequence, wait: 5 do
+  #     invoke 'puma:restart'
+  #   end
+  # end
 
   before :starting,     :check_revision
   # after  :finishing,    :compile_assets
-  # after 'migrate', 'seed'
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  # after  :finishing,    :restart
 end
