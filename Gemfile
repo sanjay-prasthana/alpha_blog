@@ -74,4 +74,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
-# gem 'bootstrap-sass', '3.3.6' 
+gem 'bootstrap-sass', '3.3.6' 
+gem 'sassc-rails', '>= 2.1.0'
+
