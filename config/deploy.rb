@@ -64,6 +64,6 @@ namespace :deploy do
   before :starting,     :check_revision
   # after  :finishing,    :compile_assets
   # after 'migrate', 'seed'
-  # after  :finishing,    :cleanup
+  after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
